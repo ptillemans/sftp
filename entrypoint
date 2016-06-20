@@ -58,6 +58,9 @@ function createUser() {
     mkdir -p /home/$user
     chown root:root /home/$user
     chmod 755 /home/$user
+    mkdir -p /home/$user/google/.done
+    chown -R $user /home/$user/google
+    chmod -R 755 /home/$user/google
 
     if [ -z "$pass" ]; then
         pass="$(tr -dc A-Za-z0-9 </dev/urandom | head -c256)"
